@@ -114,27 +114,19 @@ public static String renderPageWithSetupsAndTeardowns(PageData pageData, boolean
 این listing نشان میدهد که بلوک های موجود در جملات شرطی ،  حلقه ها ، و نظایر آن، باید به اندازه یک خط باشند. احتمالاً آن خط باید یک فراخوانی تابع باشد. این کار نه تنها تابع محصور را کوچک نگه می دارد بلکه یک ارزش مستندسازی را نیز به آن اضافه می کند زیرا تابع فراخوانی شده در آن بلوک می تواند نام توصیفی خوبی داشته باشد.
 همچنین این listing نشان میدهد توابع نباید برای نگه داشتن ساختارهای تو در تو به اندازه کافی بزرگ باشند. بنابراین ، سطح تورفتگی یک تابع نباید بیشتر از یک یا دو باشد. این امر البته باعث می شود خواندن و درک توابع آسان تر شود.
 </div>
-### Do One Thing
-It should be very clear that Listing 3-1 is doing lots
-more than one thing. It’s creating buffers, fetching
-pages, searching for inherited pages, rendering paths,
-appending arcane strings, and generating HTML,
-among other things. Listing 3-1 is very busy doing
-lots of different things. On the other hand, Listing 3-3
-is doing one simple thing. It’s including setups and
-teardowns into test pages.
-The following advice has appeared in one form
-or another for 30 years or more.
-F UNCTIONS SHOULD DO ONE THING . T HEY SHOULD DO IT WELL .
-T HEY SHOULD DO IT ONLY .
-The problem with this statement is that it is hard to know what “one thing” is. Does
-Listing 3-3 do one thing? It’s easy to make the case that it’s doing three things:
-1. Determining whether the page is a test page.
-2. If so, including setups and teardowns.
-3. Rendering the page in HTML.
-So which is it? Is the function doing one thing or three things? Notice that the three
-steps of the function are one level of abstraction below the stated name of the function. We
-can describe the function by describing it as a brief TO 4 paragraph:
+### فقط یک کار انجام دهید
+کاملا واضحه که listing3-1 خیلی بیشتر از یک کار انجام میده; کارهایی مثل ساخت بافرها، فراخوانی صفحات، جسجتو برای زیر صفحه ها، یافتن مسیرها، افزودن arcane string ها و ساخت کدهای HTML در بین سایر کدها.
+همانطور که مشاهده کردید listing3-1 بسیار شلوغه و کارهای متفاوتی رو انجام میده اما برخلاف اون listing3-3 فقط یک وظیفه ساده داره، اعمال تنظیمات و teardown ها در صفحه.
+پس به اینکه توجه داشته باشید که:
+توابع فقط و فقط باید برای انجام یک کار تعریف شوند و لازمه که اون کار رو به درستی هر چه تمام تر انجام بدن
+خب حالا لازمه که بدونیم تعریفمون از فقط یک کار چی هست؟
+برای مثال ایا واقعا listing3-3 فقط یک کار رو انجام میده ؟ خیلی راحت میشه اعمال این تابع رو به سه بخش تقسیم کرد:
+1-	تشخیصی اینکه ایا صفحه test page هست یا نه؟
+2-	اگر هست تنظیمات و teardown ها رواعمال کن
+3-	صفحه رو در HTML درج کن
+خب پس کدومش درسته، این تابع یک وظیفه داره یا سه وظیفه؟ دقت کنید که این سه مرحله با هم مفهومی که از اسم تابع برداشت میشه رو اجرا میکنند .
+در واقع ما میتونیم تابع رو توی این چهار پاراگراف خلاصه کنیم:
+
 TO RenderPageWithSetupsAndTeardowns, we check to see whether the page is a test page
 and if so, we include the setups and teardowns. In either case we render the page in
 HTML.
